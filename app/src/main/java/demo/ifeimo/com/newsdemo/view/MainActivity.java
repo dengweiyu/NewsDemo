@@ -1,19 +1,18 @@
 package demo.ifeimo.com.newsdemo.view;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
-import android.widget.ListView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
@@ -31,10 +30,9 @@ import java.util.List;
 
 import demo.ifeimo.com.newsdemo.Model.TypeUrl;
 import demo.ifeimo.com.newsdemo.R;
-import demo.ifeimo.com.newsdemo.data.adapter.NewsItem;
-import demo.ifeimo.com.newsdemo.data.adapter.NewsItemAdapter;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    private String Tag = this.getClass().getSimpleName();
     private List<String> title;
     private SlidingMenuView mSlidingMenuView;
     private MagicIndicator mMagicIndicator;
@@ -42,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager mViewPager;
     private List<NewsColumnFragment> mFragments;
     private NewsColumnFragmentAdapter mNewsColumnFragmentApadter;
+
+    private LinearLayout linearLayout_setting;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -161,17 +161,26 @@ public class MainActivity extends AppCompatActivity {
     private void initView() {
         //SlidingMenuSetting
         mSlidingMenuView = new SlidingMenuView(this);
-        mSlidingMenuView.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
+        mSlidingMenuView.attachToActivity(MainActivity.this, SlidingMenu.SLIDING_CONTENT);
         mSlidingMenuView.setMenu(R.layout.slidingmenu_main);
         mSlidingMenuView.setFadeDegree(0.35f);
         mSlidingMenuView.setBehindOffsetRes(R.dimen.slidingmenu_offset);
-        mSlidingMenuView.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+//        mSlidingMenuView.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
         mSlidingMenuView.setMode(SlidingMenu.LEFT);
 
         mMagicIndicator = (MagicIndicator) findViewById(R.id.main_MagicIndicator);
         mViewPager = (ViewPager) findViewById(R.id.main_ViewPager);
+
+        linearLayout_setting = (LinearLayout) findViewById(R.id.setting);
         initFragment();
         initViewPager();
+        initSlidingView();
+    }
+
+    private void initSlidingView() {
+        mSlidingMenuView.setOnClickListener(this);
+        linearLayout_setting.setOnClickListener(this);
+
     }
 
     private void initViewPager() {
@@ -213,6 +222,25 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_MENU:
+                mSlidingMenuView.toggle();
+                break;
+            default:
+                break;
+        }
         return super.onKeyDown(keyCode, event);
     }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+
+            case R.id.setting:
+                startActivity(new Intent(MainActivity.this, AppSetting.class));
+                break;
+        }
+    }
+
+
 }

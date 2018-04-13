@@ -1,6 +1,8 @@
 <resources>
-    <string name="app_name">NewsDemo</string>
+    <string name="app_name">NewsApp</string>
     <string name="textTitle">在健身房千万别这样，不保证你不会被打死</string>
     <string name="textTime">2018-3-11</string>
     <string name="textContent">爱健身</string>
+    <string name="about"> &#160;&#160;&#160;&#160;本项目是一个新闻信息服务系统，基于MVP开发模式的程序，其中主要功能为新闻模块，提供各种不同类型新闻供给浏览。这些功能都是为了广大网民提供更好的浏览方式，丰富网民的生活知识和时事，做到不出门便知天下事。
+    </string>
 </resources>

@@ -2,15 +2,19 @@ package demo.ifeimo.com.newsdemo.view;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.KeyEvent;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
 import demo.ifeimo.com.newsdemo.R;
+
+import static android.support.v4.app.ActivityCompat.startActivity;
 
 /**
  * Created by y on 2018/3/6.
@@ -32,6 +36,7 @@ public class SlidingMenuView extends SlidingMenu {
         super(context, attrs, defStyleAttr);
 
     }
+
 
     @Override
     public void setMode(int mode) {
@@ -68,4 +73,6 @@ public class SlidingMenuView extends SlidingMenu {
     public void toggle() {
         super.toggle();
     }
+
+
 }

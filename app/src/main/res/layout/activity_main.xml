@@ -3,19 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/transparent"
+    android:background="@android:color/white"
     tools:context="demo.ifeimo.com.newsdemo.view.MainActivity">
 
-    <demo.ifeimo.com.newsdemo.view.SlidingMenuView
+    <com.jeremyfeinstein.slidingmenu.lib.SlidingMenu
         android:id="@+id/main_SlidingMenuView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@null"></demo.ifeimo.com.newsdemo.view.SlidingMenuView>
+        android:background="@android:color/white"
+        android:clickable="true"></com.jeremyfeinstein.slidingmenu.lib.SlidingMenu>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@null"
+        android:background="@android:color/white"
         android:orientation="vertical">
 
         <net.lucode.hackware.magicindicator.MagicIndicator
@@ -28,7 +29,8 @@
             android:id="@+id/main_ViewPager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@android:color/white">
 
-            android:background="@null"></android.support.v4.view.ViewPager>
+        </android.support.v4.view.ViewPager>
     </LinearLayout>
 </FrameLayout>
