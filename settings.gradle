@@ -1,1 +1,1 @@
-include ':app', 'SlidingMenu', ':magicindicator', ':sample', ':sdk'
+include ':app', 'SlidingMenu', ':magicindicator', ':sdk'

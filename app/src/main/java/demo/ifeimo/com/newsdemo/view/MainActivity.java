@@ -6,6 +6,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -30,6 +32,7 @@ import java.util.List;
 
 import demo.ifeimo.com.newsdemo.Model.TypeUrl;
 import demo.ifeimo.com.newsdemo.R;
+import demo.ifeimo.com.newsdemo.preference.PreferenceHelper;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private String Tag = this.getClass().getSimpleName();
@@ -40,8 +43,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ViewPager mViewPager;
     private List<NewsColumnFragment> mFragments;
     private NewsColumnFragmentAdapter mNewsColumnFragmentApadter;
-
+    private TextView loginTv;
     private LinearLayout linearLayout_setting;
+    private boolean login = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,6 +127,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String setTitleText(int index) {
 
         switch (TypeUrl.getCount().get(index)) {
+
             case "social":
                 return "社会新闻";
 
@@ -170,7 +175,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mMagicIndicator = (MagicIndicator) findViewById(R.id.main_MagicIndicator);
         mViewPager = (ViewPager) findViewById(R.id.main_ViewPager);
-
+        loginTv = (TextView) findViewById(R.id.login);
         linearLayout_setting = (LinearLayout) findViewById(R.id.setting);
         initFragment();
         initViewPager();
@@ -180,7 +185,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void initSlidingView() {
         mSlidingMenuView.setOnClickListener(this);
         linearLayout_setting.setOnClickListener(this);
-
+        loginTv.setOnClickListener(this);
     }
 
     private void initViewPager() {
@@ -236,11 +241,41 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
 
+            case R.id.login:
+                if (!login) {
+                    startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                } else {
+                    startActivity(new Intent(MainActivity.this, PersonalActivity.class));
+                }
+                break;
             case R.id.setting:
                 startActivity(new Intent(MainActivity.this, AppSetting.class));
                 break;
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (PreferenceHelper.getInstance().getIfLogined(this).equals("true")) {
+            login = true;
+            loginTv.setText(PreferenceHelper.getInstance().getNick(this));
+        } else {
+            login = false;
+            loginTv.setText("登录");
+        }
+    }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+//        PreferenceHelper.getInstance().clear(this);
+    }
 }
