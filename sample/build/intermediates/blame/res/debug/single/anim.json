@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "E:\\android studio documents\\NewsDemo\\NewsDemo\\sample\\build\\intermediates\\res\\merged\\debug\\anim\\cycle_7.xml",
+        "source": "E:\\android studio documents\\NewsDemo\\NewsDemo\\sample\\res\\anim\\cycle_7.xml"
+    },
+    {
+        "merged": "E:\\android studio documents\\NewsDemo\\NewsDemo\\sample\\build\\intermediates\\res\\merged\\debug\\anim\\zoomin.xml",
+        "source": "E:\\android studio documents\\NewsDemo\\NewsDemo\\sample\\res\\anim\\zoomin.xml"
+    },
+    {
+        "merged": "E:\\android studio documents\\NewsDemo\\NewsDemo\\sample\\build\\intermediates\\res\\merged\\debug\\anim\\shake.xml",
+        "source": "E:\\android studio documents\\NewsDemo\\NewsDemo\\sample\\res\\anim\\shake.xml"
+    },
+    {
+        "merged": "E:\\android studio documents\\NewsDemo\\NewsDemo\\sample\\build\\intermediates\\res\\merged\\debug\\anim\\zoomout.xml",
+        "source": "E:\\android studio documents\\NewsDemo\\NewsDemo\\sample\\res\\anim\\zoomout.xml"
+    },
+    {
+        "merged": "E:\\android studio documents\\NewsDemo\\NewsDemo\\sample\\build\\intermediates\\res\\merged\\debug\\anim\\push_up_in.xml",
+        "source": "E:\\android studio documents\\NewsDemo\\NewsDemo\\sample\\res\\anim\\push_up_in.xml"
+    }
+]

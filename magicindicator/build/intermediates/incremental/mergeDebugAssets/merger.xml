@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="E:\android studio documents\NewsDemo\NewsDemo\magicindicator\src\main\assets"/><source path="E:\android studio documents\NewsDemo\NewsDemo\magicindicator\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="E:\android studio documents\NewsDemo\NewsDemo\magicindicator\src\debug\assets"/></dataSet></merger>
